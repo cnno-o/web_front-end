@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>testJS</title>
+</head>
+
+<body>
+    <script>
+        var a = "https://www.byjzjc.life/testjs.html?name=测试";
+        document.write("a: " + a);
+        var b = encodeURI(a);
+        document.write("<br />b: " + b);
+        var c = decodeURI(b);
+        document.write("<br />c: " + c);
+
+        document.write("<br />");
+        document.write("<br />");
+        var star = function (n) {
+            for (var i = 1; i <= n; i++) {
+                for (var j = n - i; j >= 0; j--) {
+                    document.write("&nbsp;");
+                }
+                for (var j = 1; j <= i; j++) {
+                    document.write("*&nbsp;");
+                }
+                document.write("<br />");
+            }
+        }
+        star(6);
+
+        document.write("<br />");
+        document.write();
+        var num = function (n) {
+            var s = 0;
+            for (var i = 1; i <= n; i++) {
+                if (i % 3 == 0 && i % 5 == 0) {
+                    s += 1;
+                }
+            }
+            document.write(n + "以内能同时被3和5整除的整数有" + s + "个：<br />");
+            for (var i = 1; i <= n; i++) {
+                if (i % 3 == 0 && i % 5 == 0) {
+                    document.write(i);
+                    s += 1;
+                    if (s % 6 == 0) {
+                        document.write("<br />");
+                    }
+                    else {
+                        document.write("&nbsp;");
+                    }
+                }
+            }
+        }
+        num(1000);
+
+        document.write("<br />");
+        function Circle(r) {
+            this.r = r;
+        }
+        Circle.prototype.PI = 3.14;
+        Circle.prototype.circumference = function () {
+            return 2 * this.PI * this.r;
+        }
+        Circle.prototype.area = function () {
+            return this.PI * this.r * this.r;
+        }
+        var c1 = new Circle(10);
+        document.write("圆的半径为：" + c1.r);
+        document.write("<br />圆的周长为：" + c1.circumference());
+        document.write("<br />圆的面积为：" + c1.area());
+
+        document.write("<br />");
+        document.write("<br />");
+        var result1 = Math.round(3.4);
+        var result2 = Math.round(3.5);
+        var result3 = Math.round(3.54);
+        var result4 = Math.round(3.55);
+        document.write(result1 + "&nbsp;");
+        document.write(result2 + "&nbsp;");
+        document.write(result3 + "&nbsp;");
+        document.write(result4 + "&nbsp;");
+
+        var sum = function (a, b) {
+            return a + b;
+        }
+
+        alert("2 + 5 = " + sum(2, 5));
+
+        function ran(digit) {
+            var result = "";
+            for (i = 0; i < digit; i++) {
+                result += Math.floor(Math.random() * 10);
+            }
+            alert("生成的" + digit + "位随机数为：" + result);
+        }
+
+        document.write("<br />");
+        var now = new Date();
+        var month = now.getMonth() + 1;
+        var day = now.getDay();
+        document.write(month + "月" + " 星期" + day);
+        document.write("<br />");
+        document.write(now.toLocaleString());
+
+        document.write("<br />");
+        var arr = new Array("a", "b", "c");
+        for (var i = 0; i < 3; i++) {
+            document.write(arr[i] + "&nbsp;");
+        }
+        document.write("<br />");
+        delete arr[1];
+        for (var i = 0; i < 3; i++) {
+            document.write(arr[i] + "&nbsp;");
+        }
+
+
+
+    </script>
+
+    <p>请输入要生成的随机数的位数：</p>
+    <form name="form1" action="">
+        <input type="text" name="digit" />
+        <input type="button" value="生成" onclick="ran(form1.digit.value)" />
+    </form>
+
+    <table width="300" height="160" border="0">
+        <form name="form2" action="">
+            <tr>
+                <td width="80" align="right">用户名：</td>
+                <td align="right">
+                    <input type="text" onfocus="txtfocus()" onblur="txtblur()" />
+                </td>
+            </tr>
+            <tr>
+                <td width="80" align="right">信息：</td>
+                <td align="right">
+                    <input type="textarea" value="这里是信息" onfocus="this.select()" />
+                </td>
+            </tr>
+            <tr>
+                <td width="80" align="right">其他：</td>
+                <td align="right">
+                    <input type="reset" value="重置" />
+                </td>
+            </tr>
+        </form>
+    </table>
+    <script type="text/javascript">
+        function txtfocus() {
+            var e = window.event;
+            var obj = e.target;
+            obj.style.background = "#FF9966";
+        }
+        function txtblur() {
+            var e = window.event;
+            var obj = e.target;
+            obj.style.background = "#FFFFFF";
+        }
+    </script>
+
+</body>
+
+</html>
